@@ -14,7 +14,6 @@ def check_price(URL):
 
     product_info_dict = {}
 
-    #URL = 'https://www.bunnings.com.au/ozito-power-x-change-18v-brushless-impact-wrench-skin-only_p6290566'
     headers = {'User-Agent': 'Mozilla/5.0 (Windows NT 6.1; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/78.0.3904.97 Safari/537.36'}
     page = requests.get(URL, headers = headers)
 
@@ -28,7 +27,7 @@ def check_price(URL):
 
     return product_name, product_price
 
-#scraped data process
+#scraped data process (Bunnings)
 def process_respond(text):
     product_info = {}
     new_text = text.get_text()
@@ -49,7 +48,7 @@ def check_history_price():
         for row in price_history_reader:
             item_price_history = []
             item_price_history.append(row['product_name'])
-            item_price_history.append(row['product_price'])
+            item_price_history.append(float(row['product_price']))
             item_price_history.append(row['url'])
             price_history.append(item_price_history)
 
@@ -71,18 +70,104 @@ def price_current(URL_list):
 
     return price_current
 
-def write_header():
-    big_list = [{'product_name' : 'a', 'product_price' : 100, 'url' : 'www.abc.com'},
-                {'product_name' : 'b', 'product_price' : 200, 'url' : 'www.bcd.com'},
-                {'product_name' : 'c', 'product_price' : 300, 'url' : 'www.efg.com'}]
+def write_header(list_to_update):
+    #big_list = [{'product_name' : 'a', 'product_price' : 100, 'url' : 'www.abc.com'},
+    #            {'product_name' : 'b', 'product_price' : 200, 'url' : 'www.bcd.com'},
+    #            {'product_name' : 'c', 'product_price' : 300, 'url' : 'www.efg.com'}]
 
     with open('price_history.csv', 'w') as output_csv:
         fields = ['product_name', 'product_price', 'url']
         output_writer = csv.DictWriter(output_csv, fieldnames = fields)
 
         output_writer.writeheader()
-        for item in big_list:
-            output_writer.writerow(item)
+        #for item in big_list:
+        #    output_writer.writerow(item)
+
+        for item1 in list_to_update:
+            dict = {key : value for key, value in zip(fields, item1)}
+            output_writer.writerow(dict)
+
+
+def send_mail():
+
+    p_name, p_price = check_price()
+
+    server = smtplib.SMTP('smtp.gmail.com', 587)
+    server.ehlo()
+    server.starttls()
+    server.ehlo()
+
+    server.login('guanxv@gmail.com', 'dsmizcssiblptbeq')
+
+    subject = p_name + "Price Drop to $" + str(p_price)
+    body = 'https://www.bunnings.com.au/ozito-power-x-change-18v-brushless-impact-wrench-skin-only_p6290566'
+
+    msg = "Subject: {subject}\n\n{body}".format(subject = subject, body = body)
+
+    server.sendmail('guanxv@gmail.com', 'guanxv@gmail.com', msg)
+
+    server.quit()
+
+def compare_price(URL_list):
+    price_current_list = price_current(URL_list)
+    price_history_list = check_history_price()
+
+    send_email_list = []
+    local_file_update_list = []
+
+
+    for item_cur in price_current_list:
+
+        for item_his in price_history_list:
+
+            if item_cur[0] == item_his[0]:
+
+                if item_cur[1] < item_his[1]:
+
+                    send_email_list.append(item_cur)
+
+                elif item_cur[1] == item_his[1]:
+
+                    break
+
+                price_history_list.remove(item_his)
+                local_file_update_list.append(item_cur)
+                break
+
+        local_file_update_list.append(item_cur)
+
+    local_file_update_list += price_history_list
+
+    print(local_file_update_list)
+    print(send_email_list)
+
+    write_header(local_file_update_list)
+
+compare_price(URL_list)
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 
 def send_mail():
