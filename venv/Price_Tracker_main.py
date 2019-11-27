@@ -71,17 +71,20 @@ def price_current(URL_list):
     return price_current
 
 def write_header(list_to_update):
-    #big_list = [{'product_name' : 'a', 'product_price' : 100, 'url' : 'www.abc.com'},
-    #            {'product_name' : 'b', 'product_price' : 200, 'url' : 'www.bcd.com'},
-    #            {'product_name' : 'c', 'product_price' : 300, 'url' : 'www.efg.com'}]
+
+#    big_list = [{'product_name' : 'a', 'product_price' : 100, 'url' : 'www.abc.com'},
+#                {'product_name' : 'b', 'product_price' : 200, 'url' : 'www.bcd.com'},
+#               {'product_name' : 'c', 'product_price' : 300, 'url' : 'www.efg.com'}]
+
 
     with open('price_history.csv', 'w') as output_csv:
         fields = ['product_name', 'product_price', 'url']
         output_writer = csv.DictWriter(output_csv, fieldnames = fields)
 
+
         output_writer.writeheader()
-        #for item in big_list:
-        #    output_writer.writerow(item)
+#        for item in big_list:
+#            output_writer.writerow(item)
 
         for item1 in list_to_update:
             dict = {key : value for key, value in zip(fields, item1)}
@@ -97,7 +100,7 @@ def send_mail():
     server.starttls()
     server.ehlo()
 
-    server.login('guanxv@gmail.com', 'dsmizcssiblptbeq')
+    server.login('guanxv@gmail.com', '')
 
     subject = p_name + "Price Drop to $" + str(p_price)
     body = 'https://www.bunnings.com.au/ozito-power-x-change-18v-brushless-impact-wrench-skin-only_p6290566'
@@ -112,10 +115,10 @@ def compare_price(URL_list):
     price_current_list = price_current(URL_list)
     price_history_list = check_history_price()
 
+
     send_email_list = []
-    local_file_update_list = []
 
-
+    #check price against history, if current price drops, send email
     for item_cur in price_current_list:
 
         for item_his in price_history_list:
@@ -126,24 +129,13 @@ def compare_price(URL_list):
 
                     send_email_list.append(item_cur)
 
-                elif item_cur[1] == item_his[1]:
+    cur_item_name = [x[0] for x in price_current_list]
+    history_only_list = [x for x in price_history_list if x[0] not in cur_item_name]
 
-                    break
-
-                price_history_list.remove(item_his)
-                local_file_update_list.append(item_cur)
-                break
-
-        local_file_update_list.append(item_cur)
-
-    local_file_update_list += price_history_list
-
-    print(local_file_update_list)
-    print(send_email_list)
-
-    write_header(local_file_update_list)
+    write_header(price_current_list + history_only_list)
 
 compare_price(URL_list)
+
 
 
 
