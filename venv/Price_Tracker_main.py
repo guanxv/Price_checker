@@ -171,7 +171,7 @@ def send_mail():
     server.starttls()
     server.ehlo()
 
-    server.login('guanxv@gmail.com', 'dsmizcssiblptbeq')
+    server.login('guanxv@gmail.com', '')
 
     subject = p_name + "Price Drop to $" + str(p_price)
     body = 'https://www.bunnings.com.au/ozito-power-x-change-18v-brushless-impact-wrench-skin-only_p6290566'
