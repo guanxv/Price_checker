@@ -3,14 +3,14 @@ from bs4 import BeautifulSoup
 import smtplib
 import csv
 
-URL_list = ['https://www.bunnings.com.au/ozito-power-x-change-18v-brushless-impact-wrench-skin-only_p6290566',
-            'https://www.bunnings.com.au/ozito-power-x-change-18v-impact-driver-skin-only_p6290472'
+URL_list = []
 
+with open('monitored_item.csv') as monitored_list:
+    a = monitored_list.read()
 
+URL_list = a.split(",\n")
 
-            ]
-
-def check_price(URL):
+def check_price(URL): # check price on bunnings website
 
     product_info_dict = {}
 
@@ -27,8 +27,7 @@ def check_price(URL):
 
     return product_name, product_price
 
-#scraped data process (Bunnings)
-def process_respond(text):
+def process_respond(text): #scraped data process (Bunnings)
     product_info = {}
     new_text = text.get_text()
     product_info_list = new_text.split('{')[1].split('}')[0].split('<')[0].split(',')
@@ -59,6 +58,7 @@ def price_current(URL_list):
     price_current = []
     product_name = ""
     product_price = 0
+    his_price = 0
 
     for url in URL_list:
         product_name, product_price = check_price(url)
@@ -66,6 +66,8 @@ def price_current(URL_list):
         item_price_current.append(product_name)
         item_price_current.append(product_price)
         item_price_current.append(url)
+        item_price_current.append(his_price)
+
         price_current.append(item_price_current)
 
     return price_current
@@ -91,25 +93,38 @@ def write_header(list_to_update):
             output_writer.writerow(dict)
 
 
-def send_mail():
+def send_mail(item_list):
 
-    p_name, p_price = check_price()
+    password = ''
+
+    with open('mimimama') as password_file:
+        password = password_file.read()
 
     server = smtplib.SMTP('smtp.gmail.com', 587)
     server.ehlo()
     server.starttls()
     server.ehlo()
 
-    server.login('guanxv@gmail.com', '')
+    #print(password)
 
-    subject = p_name + "Price Drop to $" + str(p_price)
-    body = 'https://www.bunnings.com.au/ozito-power-x-change-18v-brushless-impact-wrench-skin-only_p6290566'
+    server.login('guanxv@gmail.com', password)
 
-    msg = "Subject: {subject}\n\n{body}".format(subject = subject, body = body)
+    for item in item_list:
 
-    server.sendmail('guanxv@gmail.com', 'guanxv@gmail.com', msg)
+        p_name = item[0]
+        p_price = item[1]
+        P_url = item[2]
+        p_price_his = item[3]
+
+        subject = p_name + "Price Drop to $" + str(p_price) + ", was $" + str(p_price_his)
+        body = P_url
+
+        msg = "Subject: {subject}\n\n{body}".format(subject = subject, body = body)
+
+        server.sendmail('guanxv@gmail.com', 'guanxv@gmail.com', msg)
 
     server.quit()
+
 
 def compare_price(URL_list):
     price_current_list = price_current(URL_list)
@@ -127,6 +142,7 @@ def compare_price(URL_list):
 
                 if item_cur[1] < item_his[1]:
 
+                    item_cur[3] = item_his[1]
                     send_email_list.append(item_cur)
 
     cur_item_name = [x[0] for x in price_current_list]
@@ -134,52 +150,9 @@ def compare_price(URL_list):
 
     write_header(price_current_list + history_only_list)
 
+    if send_email_list == []:
+        pass
+    else:
+        send_mail(send_email_list)
+
 compare_price(URL_list)
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-def send_mail():
-
-    p_name, p_price = check_price()
-
-    server = smtplib.SMTP('smtp.gmail.com', 587)
-    server.ehlo()
-    server.starttls()
-    server.ehlo()
-
-    server.login('guanxv@gmail.com', '')
-
-    subject = p_name + "Price Drop to $" + str(p_price)
-    body = 'https://www.bunnings.com.au/ozito-power-x-change-18v-brushless-impact-wrench-skin-only_p6290566'
-
-    msg = "Subject: {subject}\n\n{body}".format(subject = subject, body = body)
-
-    server.sendmail('guanxv@gmail.com', 'guanxv@gmail.com', msg)
-
-    server.quit()
-
-
