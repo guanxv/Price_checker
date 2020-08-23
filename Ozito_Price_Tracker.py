@@ -55,6 +55,15 @@ df = pd.DataFrame([],columns = df_name)
 for i in range(1,4):
     df = df.append(create_df(URL, i))
 
-print(df.info())
+
+
+df['Price_int'] = df.apply(lambda row: float(row['price']), axis = 1)
+df = df.drop(columns = 'price')
+df.rename(columns = {'Price_int' : 'price'})
+
+
+df.to_csv('ozito.csv')
+
+print(df)
 
 

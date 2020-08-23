@@ -2,8 +2,9 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="9bf22985-9891-4715-88ab-5aa7f6b84a7f" name="Default Changelist" comment="">
+      <change beforePath="$PROJECT_DIR$/.idea/Price_Tracker.iml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/Price_Tracker.iml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/venv/Price_Tracker_main.py" beforeDir="false" afterPath="$PROJECT_DIR$/venv/Price_Tracker_main.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/venv/Ozito_Price_Tracker.py" beforeDir="false" afterPath="$PROJECT_DIR$/venv/Ozito_Price_Tracker.py" afterDir="false" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
@@ -29,8 +30,13 @@
   <component name="ProjectLevelVcsManager" settingsEditedManually="true" />
   <component name="PropertiesComponent">
     <property name="SHARE_PROJECT_CONFIGURATION_FILES" value="true" />
-    <property name="last_opened_file_path" value="$PROJECT_DIR$" />
+    <property name="last_opened_file_path" value="$USER_HOME$/AppData/Local/Programs/Python/Python37-32" />
     <property name="settings.editor.selected.configurable" value="com.jetbrains.python.configuration.PyActiveSdkModuleConfigurable" />
+  </component>
+  <component name="RecentsManager">
+    <key name="MoveFile.RECENT_KEYS">
+      <recent name="D:\Python_Projects\Price_Tracker\venv" />
+    </key>
   </component>
   <component name="RunDashboard">
     <option name="ruleStates">
@@ -44,7 +50,7 @@
       </list>
     </option>
   </component>
-  <component name="RunManager" selected="Python.Ozito_Price_Tracker">
+  <component name="RunManager" selected="Python.upwork_golf_data_scrapping">
     <configuration name="Ozito_Price_Tracker" type="PythonConfigurationType" factoryName="Python" temporary="true">
       <module name="Price_Tracker" />
       <option name="INTERPRETER_OPTIONS" value="" />
@@ -87,10 +93,32 @@
       <option name="INPUT_FILE" value="" />
       <method v="2" />
     </configuration>
+    <configuration name="upwork_golf_data_scrapping" type="PythonConfigurationType" factoryName="Python" temporary="true">
+      <module name="Price_Tracker" />
+      <option name="INTERPRETER_OPTIONS" value="" />
+      <option name="PARENT_ENVS" value="true" />
+      <envs>
+        <env name="PYTHONUNBUFFERED" value="1" />
+      </envs>
+      <option name="SDK_HOME" value="" />
+      <option name="WORKING_DIRECTORY" value="$PROJECT_DIR$/venv" />
+      <option name="IS_MODULE_SDK" value="true" />
+      <option name="ADD_CONTENT_ROOTS" value="true" />
+      <option name="ADD_SOURCE_ROOTS" value="true" />
+      <option name="SCRIPT_NAME" value="$PROJECT_DIR$/venv/upwork_golf_data_scrapping.py" />
+      <option name="PARAMETERS" value="" />
+      <option name="SHOW_COMMAND_LINE" value="false" />
+      <option name="EMULATE_TERMINAL" value="false" />
+      <option name="MODULE_MODE" value="false" />
+      <option name="REDIRECT_INPUT" value="false" />
+      <option name="INPUT_FILE" value="" />
+      <method v="2" />
+    </configuration>
     <recent_temporary>
       <list>
-        <item itemvalue="Python.Ozito_Price_Tracker" />
+        <item itemvalue="Python.upwork_golf_data_scrapping" />
         <item itemvalue="Python.Price_Tracker_main" />
+        <item itemvalue="Python.Ozito_Price_Tracker" />
       </list>
     </recent_temporary>
   </component>

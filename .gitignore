@@ -1,0 +1,7 @@
+venv
+.idea
+build
+dist
+mimimama
+pyvenv.cfg
+price_tracker_main.spec
