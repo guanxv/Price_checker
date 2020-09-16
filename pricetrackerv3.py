@@ -1,51 +1,62 @@
-import urllib.parse
-import urllib.request
 from respondprocess import webRespondProcess
+from getURLRespond import getMultiPageRespond
 
-import json
 
-# URL = "https://www.bunnings.com.au/our-range/brands/o/ozito-power-x-change"
-# URL = "https://www.google.com"#
-URL = "https://www.bunnings.com.au/our-range/brands/o/ozito-pxc?facets=CategoryIdPath%3D2a021706-07d5-4648-bf26-2ea8fea049df"
+URL = "https://www.bunnings.com.au/our-range/brands/o/ozito-power-x-change"
+# URL = "https://www.bunnings.com.au/our-range/brands/r/ryobi-one-"
 
-headers = {"User-Agent": "Mozilla/5.0"}
+allThePages = getMultiPageRespond(URL, 5)
 
-req = urllib.request.Request(URL, headers=headers)
-the_page = urllib.request.urlopen(req).read()
+# print(allThePages)
 
-data = webRespondProcess(the_page)
+allProduct = []
 
-print(data)
+for page in allThePages:
 
-#print(type(data))
+    dictData = webRespondProcess(page)
+
+    allProduct += dictData
+
+print(allProduct)
+
+# price history add key
 
 """
-# generate request
-values = {
-    "facets": "CategoryIdPath%3D2a021706-07d5-4648-bf26-2ea8fea049df",
-    "page": 1,
-}
 
-data = urllib.parse.urlencode(values)
-req = urllib.request.Request(url, data)
-response = urllib.request.urlopen(req)
-the_page = response.read()
+{
+        "fineLine": "0013581",
+        "displayName": "Ryobi 18V One+ 2.5/5.0Ah Lithium+ Battery Combo",
+        "productUrl": "/ryobi-18v-one-2-5-5-0ah-lithium-battery-combo_p0013581",
+        "brandName": "Ryobi",
+        "brandLogo": "https://media.bunnings.com.au/Brand-62x40/549a79f0-2f37-4915-9c33-b8746491748e.png",
+        "categoryNamePath": "Our Range > Tools > Power Tools > Batteries & Chargers",
+        "forHire": False,
+        "unitOfMeasure": "Each",
+        "price": 179.0,
+        "hasComparisonPrice": False,
+        "comparisonPriceUnits": 0.0,
+        "comparisonPriceUom": "",
+        "isSpecialOrder": False,
+        "availableForOrderOnline": True,
+        "availableForPickUp": True,
+        "availableForDelivery": True,
+        "isTradingRestricted": False,
+        "isThirdParty": False,
+        "isBundle": False,
+        "isCustomMade": False,
+        "hasPOADelivery": False,
+        "productImage": "https://media.bunnings.com.au/Product-190x190/c4b04c8b-52ea-4223-a327-fd7f12a74d41.jpg",
+        "checkStoreForPrice": False,
+        "stockStatus": None,
+        "isFeatured": False,
+        "sellerName": "",
+        "isMarketplaceProduct": False,
+        "showStockLevel": True,
+        "isInStore": True,
+        "productRatings": {"averageOverallRating": 5.0, "totalReviewCount": 5},
+        "priceHistory":{20200916 : 179.0, 20200917 : 180.0}
+    }
 
-
-headers = {
-    "User-Agent": "Mozilla/5.0 (Windows NT 6.1; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/78.0.3904.97 Safari/537.36"
-}
-r = requests.get(URL, headers=headers, params=payload)
-#r = requests.get(URL, headers=headers)
-#print(r.headers)
-
-soup = BeautifulSoup(r.content, "html.parser")
-
-soup.prettify()
-
-#a = str(soup).encode("utf8", errors = "ignore").decode("utf8")
-#print(type(a))
-
-#with open ("sample.html","w") as f:
-#    f.write(str(soup))
 """
+
+#read and write to a sql lite File
