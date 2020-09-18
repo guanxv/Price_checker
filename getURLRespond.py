@@ -9,7 +9,7 @@ def getMultiPageRespond(theURL, totalPages):
 
     for pageNum in range(1, totalPages + 1):
 
-        sleep(randint(10, 100))
+        sleep(randint(1, 5))
 
         # generate request
         payload = {
@@ -25,5 +25,7 @@ def getMultiPageRespond(theURL, totalPages):
         the_page = r.content
 
         allPages.append(the_page)
+
+        print("page respond received...")
 
     return allPages

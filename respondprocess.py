@@ -39,4 +39,6 @@ def webRespondProcess(webRespondByte):
         for dictionary in data:
             all_data.append(dictionary)
 
+    print('Page content processed...')
+
     return all_data

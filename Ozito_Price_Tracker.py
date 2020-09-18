@@ -2,6 +2,8 @@ import requests
 from bs4 import BeautifulSoup
 import pandas as pd
 
+
+
 URL = "https://www.bunnings.com.au/our-range/brands/o/ozito-power-x-change"
 
 
