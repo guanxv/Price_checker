@@ -1,5 +1,5 @@
 import sqlite3
-from temp import tempList
+#from temp import tempList
 
 # using this method for testing
 #conn = sqlite3.connect(":memory:")
@@ -17,6 +17,22 @@ def createDB():
     )
 
     print("Database Created...")
+
+def createProductDBwithDict(Product_Dict):
+
+    keys = []
+
+    for key in Product_Dict[0]:
+        
+        keys.append(key)
+
+    
+
+
+
+    print(keys)
+
+
 
 
 def insert_product(productDict):
