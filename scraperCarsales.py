@@ -76,7 +76,7 @@ def respondProcessCarsales(the_pages):
 
             if (
                 "Petrol".lower()
-                in car_list["vehicleEngine"]["engineDisplacement"]["value"]
+                in car_list["vehicleEngine"]["engineDisplacement"]["value"].lower()
             ):  # add fuel type
 
                 car_list["fuelType"] = "Petrol"
@@ -104,7 +104,7 @@ def respondProcessCarsales(the_pages):
     return all_json
 
 
-pages = getMultiPageRespondCarsales(URL, 1)  # max page 46
+pages = getMultiPageRespondCarsales(URL, 45)  # max page 46
 
 
 all_jsons = respondProcessCarsales(pages)

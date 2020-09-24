@@ -1,4 +1,5 @@
-[
+
+data_list = [
     {
         "@type": "Vehicle",
         "url": "https://www.carsales.com.au/cars/details/2011-volkswagen-golf-90tsi-trendline-vi-auto-my11/OAG-AD-19036585/",
@@ -51047,3 +51048,5 @@
         "list_type": "private",
     },
 ]
+
+
