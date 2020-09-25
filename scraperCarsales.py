@@ -18,7 +18,7 @@ def getMultiPageRespondCarsales(theURL, totalPages):
 
     for pageNum in range(1, totalPages + 1):
 
-        waitSec = randint(5, 40)
+        waitSec = randint(1, 7)
 
         print("Wait for ", waitSec, "s...")
 
@@ -89,15 +89,21 @@ def respondProcessCarsales(the_pages):
                 car_list["mileageFromOdometer"]["value"]
             )  # move odometer key in top level for easier access, change to int type
 
-            if (
-                "private" in car_list["image"][0]["url"]
-            ):  # is it private or dealer car , add list type in 'string'
+            try:
 
-                car_list["list_type"] = "private"
+                if (
+                    "private" in car_list["image"][0]["url"]
+                ):  # is it private or dealer car , add list type in 'string'
 
-            else:
+                    car_list["list_type"] = "private"
 
-                car_list["list_type"] = "dealer"
+                else:
+
+                    car_list["list_type"] = "dealer"
+
+            except:
+
+                    car_list["list_type"] = "private"
 
             all_json.append(car_list)  # append to json,
 

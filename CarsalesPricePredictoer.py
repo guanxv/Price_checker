@@ -45,6 +45,8 @@ cars = cars.reset_index(drop = True)
 
 cars["is_petrol"] = cars.fuelType.apply(lambda x: 1 if x == "Petrol" else 0)
 cars["is_private"] = cars.list_type.apply(lambda x: 1 if x == "private" else 0)
+cars["is_auto"] = cars.list_type.apply(lambda x: 1 if 'auto' in cars.name.str.lower() else 0)
+
 
 
 
@@ -54,7 +56,7 @@ print(cars.head(10))
 from sklearn.model_selection import train_test_split
 from sklearn.linear_model import LinearRegression
 
-x = cars[['year', 'odometer', 'is_private', 'engineSize']]
+x = cars[['year', 'odometer', 'is_private', 'engineSize','numberOfCylinder','is_auto','is_petrol']] #power, drive away price , color
 
 y = cars['price']
 
@@ -72,6 +74,6 @@ print(lm.score(x_train, y_train))
 print("Test score:")
 print(lm.score(x_test, y_test))
 
-our_golf = [[2010, 168000, 1, 1.4]]
+our_golf = [[2010, 168000, 1, 1.4,4,1,1]]
 predict = model.predict(our_golf)
 print("Predicted car price: $%.2f" % predict)
