@@ -1,0 +1,111 @@
+,name,year,engineSize,numberOfCylinder,fuelType,odometer,list_type,colour,bodyStyle,badge,make,ad_type,priceType,state,regoDaysToExp,enginePower,engineTorque,price,power,torque,is_Pure White,is_Indium Grey,is_Deep Black,is_Night Blue,is_Sunset Red,is_driveaway
+1,2015 Volkswagen Golf R 7 Auto 4MOTION MY15,2015,2.0,4,Petrol - Premium ULP,102040,dealer,Pure White,Hatch,R,Volkswagen,Dealer,Drive Away,VIC,"
+        7 Months - April 2021
+    ","
+        206kW @ 6500rpm
+    ","
+        380Nm @ 1800-5100rpm
+    ",31800,206,380,1,0,0,0,0,1
+2,2019 Volkswagen Golf 110TSI Trendline 7.5 Auto MY19.5,2019,1.4,4,Petrol - Premium ULP,10500,private,Indium Grey,Hatch,110TSI Trendline,Volkswagen,Private,,VIC,"
+        2 Months - November 2020
+    ","
+        110kW @ 6000rpm
+    ","
+        250Nm @ 1500-3500rpm
+    ",22000,110,250,0,1,0,0,0,0
+3,2014 Volkswagen Golf R 7 Manual 4MOTION MY15,2014,2.0,4,Petrol - Premium ULP,96581,dealer,Pure White,Hatch,R,Volkswagen,Dealer,Drive Away,VIC,"
+        1 Month - October 2020
+    ","
+        206kW @ 6500rpm
+    ","
+        380Nm @ 1800-5100rpm
+    ",34999,206,380,1,0,0,0,0,1
+4,2014 Volkswagen Golf GTI 7 Manual MY14,2014,2.0,4,Petrol - Premium ULP,97000,private,Deep Black,Hatch,GTI,Volkswagen,Private,,VIC,"
+        8 Months - May 2021
+    ","
+        162kW @ 6200rpm
+    ","
+        350Nm @ 1500-4000rpm
+    ",24000,162,350,0,0,1,0,0,0
+5,2014 Volkswagen Golf 90TSI 7 Auto MY14,2014,1.4,4,Petrol - Premium ULP,80521,dealer,Deep Black,Hatch,90TSI,Volkswagen,Dealer,Drive Away,VIC,"
+        9 Months - June 2021
+    ","
+        90kW @ 6000rpm
+    ","
+        200Nm @ 1400-4000rpm
+    ",15990,90,200,0,0,1,0,0,1
+6,2013 Volkswagen Golf 103TSI Highline 7 Auto,2013,1.4,4,Petrol - Premium ULP,69372,private,Night Blue,Hatch,103TSI Highline,Volkswagen,Private,,VIC,"
+        7 Months - April 2021
+    ","
+        103kW @ 6000rpm
+    ","
+        250Nm @ 1500-3500rpm
+    ",16500,103,250,0,0,0,1,0,0
+7,2016 Volkswagen Golf 92TSI 7 Auto MY16,2016,1.4,4,Petrol - Premium ULP,48470,dealer,Pure White,Hatch,92TSI,Volkswagen,Dealer,Drive Away,VIC,"
+        2 Months - November 2020
+    ","
+        92kW @ 6000rpm
+    ","
+        200Nm @ 1400-4000rpm
+    ",18990,92,200,1,0,0,0,0,1
+8,2016 Volkswagen Golf R 7 Auto 4MOTION MY16,2016,2.0,4,Petrol - Premium ULP,110658,dealer,Pure White,Hatch,R,Volkswagen,Dealer,Drive Away,VIC,"
+        3 Months - December 2020
+    ","
+        206kW @ 6500rpm
+    ","
+        380Nm @ 1800-5100rpm
+    ",31990,206,380,1,0,0,0,0,1
+9,2014 Volkswagen Golf R 7 Manual 4MOTION MY15,2014,2.0,4,Petrol - Premium ULP,96581,dealer,Pure White,Hatch,R,Volkswagen,Dealer,Drive Away,VIC,"
+        1 Month - October 2020
+    ","
+        206kW @ 6500rpm
+    ","
+        380Nm @ 1800-5100rpm
+    ",34999,206,380,1,0,0,0,0,1
+10,2014 Volkswagen Golf 90TSI 7 Auto MY14,2014,1.4,4,Petrol - Premium ULP,80521,dealer,Deep Black,Hatch,90TSI,Volkswagen,Dealer,Drive Away,VIC,"
+        9 Months - June 2021
+    ","
+        90kW @ 6000rpm
+    ","
+        200Nm @ 1400-4000rpm
+    ",15990,90,200,0,0,1,0,0,1
+11,2016 Volkswagen Golf 92TSI 7 Auto MY16,2016,1.4,4,Petrol - Premium ULP,48470,dealer,Pure White,Hatch,92TSI,Volkswagen,Dealer,Drive Away,VIC,"
+        2 Months - November 2020
+    ","
+        92kW @ 6000rpm
+    ","
+        200Nm @ 1400-4000rpm
+    ",18990,92,200,1,0,0,0,0,1
+12,2013 Volkswagen Golf 103TSI Highline 7 Auto,2013,1.4,4,Petrol - Premium ULP,69372,private,Night Blue,Hatch,103TSI Highline,Volkswagen,Private,,VIC,"
+        7 Months - April 2021
+    ","
+        103kW @ 6000rpm
+    ","
+        250Nm @ 1500-3500rpm
+    ",16500,103,250,0,0,0,1,0,0
+13,2019 Volkswagen Golf 110TSI Trendline 7.5 Auto MY19.5,2019,1.4,4,Petrol - Premium ULP,10500,private,Indium Grey,Hatch,110TSI Trendline,Volkswagen,Private,,VIC,"
+        2 Months - November 2020
+    ","
+        110kW @ 6000rpm
+    ","
+        250Nm @ 1500-3500rpm
+    ",22000,110,250,0,1,0,0,0,0
+14,2015 Volkswagen Golf R 7 Auto 4MOTION MY15,2015,2.0,4,Petrol - Premium ULP,102040,dealer,Pure White,Hatch,R,Volkswagen,Dealer,Drive Away,VIC,"
+        7 Months - April 2021
+    ","
+        206kW @ 6500rpm
+    ","
+        380Nm @ 1800-5100rpm
+    ",31800,206,380,1,0,0,0,0,1
+15,2014 Volkswagen Golf GTI 7 Manual MY14,2014,2.0,4,Petrol - Premium ULP,97000,private,Deep Black,Hatch,GTI,Volkswagen,Private,,VIC,"
+        8 Months - May 2021
+    ","
+        162kW @ 6200rpm
+    ","
+        350Nm @ 1500-4000rpm
+    ",24000,162,350,0,0,1,0,0,0
+16,2016 Volkswagen Golf 92TSI 7 Auto MY16,2016,1.4,4,Petrol - Premium ULP,132329,dealer,Sunset Red,Hatch,92TSI,Volkswagen,Dealer,Excl. Govt. Charges,VIC,Check with seller,"
+        92kW @ 6000rpm
+    ","
+        200Nm @ 1400-4000rpm
+    ",13927,92,200,0,0,0,0,1,0
